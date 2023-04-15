@@ -1,56 +1,28 @@
-// get random computer choice
-
+// get the computer choice
 function getComputerChoice(){
-    let choices = ["Rock","Paper","Scissors"]
-    const randomIndex = Math.floor(Math.random() * 3);
-    return choices[randomIndex];
+    let choice = ["rock","paper","scissors"]
+    const randomIndex = (Math.floor(Math.random() * 3))
+    return choice[randomIndex];
 }
+console.log(getComputerChoice())
 
-//stupid ocd fluff function
-/*function capitalizeFirstLetter(string){
-    return string.charAt(0).toUpperCase()+string.slice(1).toLowerCase();
-}
+//prompt for playerselection
 
-//prompt for player to select choice
- let playerSelection = prompt("Choose your weapon! (Rock,Paper,Scissors)","").toLowerCase();
- playerSelection = capitalizeFirstLetter(playerSelection) ; */
+let playerSelection = prompt("Choose your weapon!(Rock,Paper,Scissors)","").toLowerCase();
 
-    //Tie condition
-   
-    function playRound(playerSelection, computerSelection) {
-     if (playerSelection === computerSelection ){
-    return  "It's a tie!";
+
+function playRound(playerSelection,computerSelection){
     
-    // Win conditions
-   
-    }else if ( playerSelection === "Rock" && computerSelection === "Scissors" ){
-    return  "You Win! Rock beats Paper!" ;
-
-    }else if (playerSelection === "Paper" && computerSelection === "Rock" ){
-    return  "You Win! Paper beats Rock!";
-
-    }else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-    return "You Win! Scissors beat Paper!";
-    
-    // Lose conditions
-
-    }else if ( playerSelection === "Scissors" && computerSelection === "Rock" ){
-    return "You Lose!Rock beats Paper!" ;
-
-    }else if (playerSelection === "Rock" && computerSelection === "Paper" ){
-     return "You Lose! Paper beats Rock!";
-       
-    }else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-     return "You Lose!Scissors beat Paper!";
+    if(playerSelection === "rock" && computerSelection === "scissors"){
+        return "You win!" + playerSelection + "beats" + computerSelection;
+    }else if(playerSelection === "paper" && computerSelection === "rock"){
+        return "You win!" + playerSelection + "beats" + computerSelection;
+    }else if(playerSelection === "scissors" && computerSelection === "paper"){
+        return  "You win!" + playerSelection + "beats" + computerSelection;
+    }else{
+        return "you lose"
     }
 }
 
-
-
-
-
-    
-const playerSelection = "Rock"   
 const computerSelection = getComputerChoice();
-console.log(playerSelection, computerSelection,playRound(playerSelection,computerSelection));
-
+console.log(playRound(playerSelection, computerSelection));
