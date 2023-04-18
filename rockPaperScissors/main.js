@@ -39,8 +39,14 @@ function playRound(playerSelection,computerSelection){
   // play the game up to 5 rounds
   function game(round = 1, playerScore = 0,computerScore = 0){
     
-    //make round limit
-    if (round > 5) {
+    //make round limit and end of game message
+    if (round >= 5 && playerScore > computerScore) {
+        console.log("You won " +  playerScore + " out of 5 rounds! congratulations, you are the champion!" +)
+        console.log("Game Over")
+        return;
+      }else if((round >= 5 && playerScore < computerScore)){
+        console.log("You lost " +  computerScore + " out of 5 rounds! Better luck next time.")
+        console.log("Game Over")
         return;
       }
   
