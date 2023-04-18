@@ -1,98 +1,78 @@
-//get random choice
+// get random computer choice
 function getComputerChoice(){
-    let choices = ["rock","paper","scissors"];
-    const randomIndex = Math.floor(Math.random() * 3);
-    return choices[randomIndex];
+    let choices = ["rock","paper","scissors"]
+    let randomIndex = Math.floor(Math.random() * 3)
+    return choices[randomIndex]
 }
-
-// playRound function
+  // play the round simple tie,  win or lose
 function playRound(playerSelection,computerSelection){
-    
-    
+
+    //return tie if playerselection and computer selection are === 
     if(playerSelection === computerSelection){
-        return "It's a tie! " + playerSelection + " is equal to " + computerSelection + "." 
-    }else if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
-      ) {
-        return  "You win! " + playerSelection + " beats " + computerSelection + "!"; 
-      } else {
-        return  "You lose! " + computerSelection + " beats " + playerSelection + "!"; 
-      }
-    }
+    return "tie";
+  
+    // if player beats computer return win, else lose
+    }else if(playerSelection === "rock" && computerSelection === "scissors"
+             || playerSelection === "paper" && computerSelection === "rock"
+             || playerSelection === "scissors" && computerSelection === "paper"){
+                return "win";
+             }else{
+                return "lose";
+             }
+        }
+   
+  // declare valid  inputes
+  function validInputs(input){
+    return input === "rock" || input === "paper" || input === "scissors";
+  }
+ 
+  // keep score 
+  function keepScore(playerScore,computerScore){
+   
+    if(playRound(playerSelection,computerSelection) === "win"){
+        playerScore++  ;
+    }else{
+        computerScore++ ;
+  }
+  
+  }
 
-
-
-
-// playgame
-function playGame() {
-        let playerSelection = prompt("Choose your weapon!(rock,paper,scissors)",""); // You can change this to update the player's choice.;
-        playerSelection = playerSelection.toLowerCase();
-        let computerSelection = getComputerChoice();
-        
-        let playerScore =  0
-        let computerScore = 0
-       
-        if (playerSelection === computerSelection){
-            playerScore = 0;
-            computerScore = 0;
-        }else if(
-            (playerSelection === "rock" && computerSelection === "scissors") ||
-            (playerSelection === "paper" && computerSelection === "rock") ||
-            (playerSelection === "scissors" && computerSelection === "paper")){
-                playerScore++
-            }else if(playerSelection === !playerSelection 
-                || playerSelection !== "rock"
-                || playerSelection !== "paper"
-                || playerSelection !== "scissors"){
-                console.log("Invalid Entry")
-                return null;
-            }else{
-                computerScore++
-            }
-
-            
-        
-        
-        console.log("Round: 1");
-        console.log("Computer Selection: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score: " + computerScore)
+  const playerSelection = "rock";
+  const computerSelection = getComputerChoice();
+  console.log (keepScore(playerScore = 0,computerScore = 0));
+  console.log (playRound(playerSelection,computerSelection));
+  // play the game 
+ 
+  
+    // prompt player
     
-        playerSelection = prompt("Choose your weapon!(rock,paper,scissors)","");
-        computerSelection = getComputerChoice();
-        console.log("Round: 2");
-        console.log("Computer Selection: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score: " + computerScore)
+  
+    // if player chooses nothing or cancels, cancel the game
+   
+  // set player choice to lowercase
     
-        playerSelection = prompt("Choose your weapon!(rock,paper,scissors)","");
-        computerSelection = getComputerChoice();
-        console.log("Round: 3");
-        console.log("Computer Selection: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score: " + computerScore)
-    
-        playerSelection = prompt("Choose your weapon!(rock,paper,scissors)","");
-        computerSelection = getComputerChoice();
-        console.log("Round: 4");
-        console.log("Computer Selection: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score: " + computerScore)
-        
-        playerSelection = prompt("Choose your weapon!(rock,paper,scissors)","");
-        computerSelection = getComputerChoice();
-        console.log("Round: 5");
-        console.log("Computer Selection: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log("Player Score: " + playerScore)
-        console.log("Computer Score: " + computerScore)
-    }
-    
-    playGame();
+  
 
+    // if validinput function is not true,  display text "invalid entry", and start the round over 
+   
+    
+  
+    //declare computerSelection and result
+    
+    
+    // store scores as an array and update them by calling on updateScores() function
+   
+  
+    //log the rounds using backticks and log computer choice
+  
+  
+    // log messages for player win, lose, or tie
+
+    
+    
+  
+    // log the scores
+   
+
+//update the round number
+  
