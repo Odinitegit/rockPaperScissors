@@ -87,8 +87,14 @@ if(result === "tie"){
     
   
     // log the scores
-   
+   console.log("Player Score: ",playerScore,"Computer Score: ",computerScore)
 
 //update the round number
-
+if(round > 5){
+    return;
 }
+
+game(round++, playerSelection,computerSelection);
+}
+
+game();
