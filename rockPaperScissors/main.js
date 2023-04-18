@@ -36,9 +36,13 @@ function playRound(playerSelection,computerSelection){
   return [playerScore, computerScore];
   }
 
-  // play the game 
+  // play the game up to 5 rounds
   function game(round = 1, playerScore = 0,computerScore = 0){
     
+    //make round limit
+    if (round > 5) {
+        return;
+      }
   
   
     // prompt player
@@ -51,7 +55,7 @@ function playRound(playerSelection,computerSelection){
     }
    
   // set player choice to lowercase
-    playerSelection = playerSelection.toLowerCase ;
+    playerSelection = playerSelection.toLowerCase() ;
   
 
     // if validinput function is not true,  display text "invalid entry", and start the round over 
@@ -63,8 +67,8 @@ function playRound(playerSelection,computerSelection){
     
   
     //declare computerSelection and result
-    let result = playRound(playRound(playerSelection,computerSelection));
-    const computerSelection = getComputerChoice();
+   let computerSelection = getComputerChoice();
+   let result = playRound(playerSelection,computerSelection);
 
     
     
@@ -73,15 +77,15 @@ function playRound(playerSelection,computerSelection){
   
     //log the rounds using backticks and log computer choice
   console.log("Round: ",`${round}`)
-  console.log("Computer Selection:" + computerSelection)
+  console.log("Computer Selection: " + computerSelection)
   
     // log messages for player win, lose, or tie
 if(result === "tie"){
    console.log("It's a tie! " + playerSelection + " is equal to " + computerSelection + ".")
 }else if(result === "win") {
-    console.log("You win " + playerSelection + "beats " + computerSelection + "!")
+    console.log("You win " + playerSelection + " beats " + computerSelection + "!")
 }else{
-   console.log( "You lose! " + computerSelection + " beats ",playerSelection + "!") 
+   console.log( "You lose! " + computerSelection + " beats " + playerSelection + "!") 
 }
     
     
@@ -90,8 +94,8 @@ if(result === "tie"){
    console.log("Player Score: " + playerScore)
    console.log("Computer Score: " + computerScore)
 
-//update the round number
-game(round++, playerScore,computerScore);
+//update the round number and replay 
+game(round + 1, playerScore,computerScore);
 }
 
 game();
