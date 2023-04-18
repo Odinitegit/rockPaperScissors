@@ -27,47 +27,62 @@ function playRound(playerSelection,computerSelection){
   }
  
   // keep score 
-  function keepScore(playerScore,computerScore){
-   
-    if(playRound(playerSelection,computerSelection) === "win"){
+  function keepScore(result,playerScore,computerScore){
+    if(result === "win"){
         playerScore++  ;
-    }else{
+    }else if(result === "lose"){
         computerScore++ ;
   }
   
   }
 
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log (keepScore(playerScore = 0,computerScore = 0));
-  console.log (playRound(playerSelection,computerSelection));
   // play the game 
- 
+  function game(round = 1, playerSelection,computerSelection){
+    
+  
   
     // prompt player
-    
+    let playerSelection = prompt("Choose your weapon!(rock,paper,scissors)", "");
   
     // if player chooses nothing or cancels, cancel the game
+    if(playerSelection === null){
+        console.log ("Cancelled game")
+        return ;
+    }
    
   // set player choice to lowercase
-    
+    playerSelection = playerSelection.toLowerCase ;
   
 
     // if validinput function is not true,  display text "invalid entry", and start the round over 
-   
+   if(!validInputs(playerSelection)){
+    console.log("Invalid Entry, please enter rock,paper, or scissors")
+    game(round = 1, playerSelection,computerSelection);
+    return;
+   }
     
   
     //declare computerSelection and result
+    let result = playRound(playRound(playerSelection,computerSelection));
+    const computerSelection = getComputerChoice();
+
     
     
     // store scores as an array and update them by calling on updateScores() function
-   
+   [playerScore,computerScore] = keepScore(result,playerScore,computerScore)
   
     //log the rounds using backticks and log computer choice
-  
+  console.log("Round: ",`${round}`)
+  console.log(computerSelection)
   
     // log messages for player win, lose, or tie
-
+if(result === "tie"){
+   console.log("It's a tie! ", playerSelection, " is equal to ",computerSelection,".")
+}else if(result === "win") {
+    console.log("You win ",playerSelection, "beats ", computerSelection,"!")
+}else{
+   console.log( "You lose! ", computerSelection, " beats ",playerSelection, "!") 
+}
     
     
   
@@ -75,4 +90,5 @@ function playRound(playerSelection,computerSelection){
    
 
 //update the round number
-  
+
+}
