@@ -41,7 +41,7 @@ function playRound(playerSelection,computerSelection){
     
     //make round limit and end of game message
     if (round >= 5 && playerScore > computerScore) {
-        console.log("You won " +  playerScore + " out of 5 rounds! congratulations, you are the champion!" +)
+        console.log("You won " +  playerScore + " out of 5 rounds! congratulations, you are the champion!" )
         console.log("Game Over")
         return;
       }else if((round >= 5 && playerScore < computerScore)){
@@ -70,7 +70,7 @@ function playRound(playerSelection,computerSelection){
     game(round, playerScore,computerScore);
     return;
    }
-    
+
   
     //declare computerSelection and result
    let computerSelection = getComputerChoice();
@@ -79,7 +79,7 @@ function playRound(playerSelection,computerSelection){
     
     
     // store scores as an array and update them by calling on updateScores() function
-   [playerScore,computerScore] = keepScore(result,playerScore,computerScore)
+   [playerScore,computerScore] = keepScore(result,playerScore,computerScore)    
   
     //log the rounds using backticks and log computer choice
   console.log("Round: ",`${round}`)
