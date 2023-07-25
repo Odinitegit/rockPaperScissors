@@ -1,3 +1,31 @@
 body{
-    background-color: black;
+    margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+}
+.words{
+    color: aliceblue;
+}
+
+
+.button{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    
+}
+
+#rock{
+    background-color: sandybrown;
+}
+
+#paper{
+    background-color: palegoldenrod;
+}
+
+#scissors{
+    background-color: silver;
 }
